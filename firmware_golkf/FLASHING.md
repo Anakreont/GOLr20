@@ -71,4 +71,4 @@ This could not be checked without hardware. If no port appears, enter the bootlo
 - Timing accuracy without PPS, phase order of the local oscillator after a PLL reset, sideband sign, receiver gain and noise.
 
 ## Ground side
-The data-frame and command format is in `../protocol/robot_proto.py` (version 1). The ground station program is not published yet.
+The ground station program is GOLbase in `../ground_station/`; the frame and command format is `robot_proto.py` (version 1).

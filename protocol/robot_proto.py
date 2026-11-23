@@ -3,7 +3,7 @@ Protokół trackera-robota FT8 („R20”) – ramki danych w obie strony. WERSJ
 
 Wszystko idzie w ramkach FT8 typu „telemetria”: 71 dowolnych bitów. Ten plik jest wzorcem formatu –
 firmware trackera ma kodować dokładnie tak samo (testy: test_robot.py). Czysty Python, bez numpy,
-żeby ten sam plik działał na PC w biurze i na Dellu.
+żeby ten sam plik działał na PC i na serwerze.
 
 Rodzaj ramki rozpoznaje się po pierwszych bitach (od najstarszego):
 
@@ -138,7 +138,7 @@ def rozpakuj_znak(n28):
 
 
 def pakuj_lokator(lok):
-    """Lokator 4 lub 6 znaków (np. JO91 albo JO91AB) -> 25 bitów. 4 znaki = środek kwadratu (…LL)."""
+    """Lokator 4 lub 6 znaków (np. KO00 albo JO91AB) -> 25 bitów. 4 znaki = środek kwadratu (…LL)."""
     z = (lok or "").strip().upper()
     if len(z) == 4:
         z += "LL"

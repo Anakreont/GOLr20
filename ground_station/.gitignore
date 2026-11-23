@@ -1,0 +1,11 @@
+ft8/ft8_lib/
+libft8shim.so
+ft8shim.dll
+__pycache__/
+*.pyc
+golbase.json
+*.adi
+robot_klucz.txt
+robot_log.json
+cty.dat
+*.wav

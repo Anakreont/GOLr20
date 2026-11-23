@@ -36,10 +36,12 @@ enough to build and flash one, but the receiver, the transmitter level and the w
 - **[`firmware_golkf/FLASHING.md`](firmware_golkf/FLASHING.md) - how to build, flash and bring the board up.**
 
 **The firmware compiles and its PC-side tests pass, but it has never run on a board.** There is no power saving yet.
-The command key (16 bytes) is not in the code; set it from the console.
+The command key (16 bytes) is not in the code; set it from the console (the same key goes into GOLbase).
 
-## Ground side (`protocol/`)
-`robot_proto.py` - format of the FT8 data frames and signed commands (version 1). The ground station program is not published yet.
+## Ground station: GOLbase (`ground_station/`)
+The program that receives the balloon's log and sends it commands through an ordinary HF radio (Windows, Python, Polish UI).
+Balloon contacts are written to an ADIF file; Log4OM is optional. See [`ground_station/README.md`](ground_station/README.md).
+`protocol/robot_proto.py` is a copy of the frame and command format (version 1) for reference.
 
 ## `sim_m33/` - can an RP2350 decode FT8 in time?
 kgoba/ft8_lib built for Cortex-M33 and run in QEMU (mps2-an505) on recorded audio, counting instructions.
