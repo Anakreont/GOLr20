@@ -49,7 +49,7 @@ values, not measurements.
 The callsigns in the code are placeholders (`QQ0QQQ` for WSPR, `QQ0Q` for FT8). Set your own before transmitting; an amateur licence is required.
 
 ## Related
-The 433 MHz LoRa camera tracker from the same author: https://github.com/Anakreont/T433-lora-photo-tracker-
+The 433 MHz LoRa camera tracker from the same author: https://github.com/Anakreont/T433-lora-photo-tracker
 
 ## Licence
 MIT (see `LICENSE`) for the code and the board files. Design by SQ9GOL. Source comments are in Polish.
