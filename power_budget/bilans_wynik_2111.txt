@@ -1,0 +1,37 @@
+wspolczynnik ostrozny (z lotow): 0.50, optymistyczny: 0.80
+
+Prad z panelu 6 x 52 x 23 plasko [mA] (napiecie ok. 3,3 V):
+ Slonce  ostroznie  optymistycznie   moc ostroznie
+  10 st.      23          36            74 mW
+  13 st.      34          54           111 mW
+  15 st.      41          66           135 mW
+  17 st.      48          78           160 mW
+  20 st.      60          96           197 mW
+  25 st.      78         126           258 mW
+  30 st.      96         155           317 mW
+  40 st.     130         210           429 mW
+  60 st.     183         296           605 mW
+
+Pobor sredni [mA] i od jakiej wysokosci Slonca starcza (ostroznie / optymistycznie):
+  sam WSPR co 10 min                          11.5 mA =  38 mW   od 7.0 st. / 5.5 st.
+  oszczedny: CQ co 2 min + 1 okno nasluchu    22.3 mA =  74 mW   od 10.0 st. / 8.0 st.
+  sredni: CQ co minute + 1 okno nasluchu      33.1 mA = 109 mW   od 13.0 st. / 9.5 st.
+  pelny: nasluch ciagly, 15 QSO/h             46.7 mA = 154 mW   od 17.0 st. / 12.0 st.
+  szczyt chwilowy: nadawanie 50 mA, odbior 43 mA, GPS 35 mA
+  energia jednego QSO (3 odbiory + 3 nadawania): 12.9 J
+
+Masa [g]:
+  laminat 22 x 30 mm, 0,6 mm (FR4 1,85 g/cm3) + miedz i maska     0.83
+  RP2350A QFN-60 + pamiec flash + kwarc                           0.25
+  Si5351A + TCXO                                                  0.05
+  GPS ATGM336H (modul)                                            0.60
+  odbiornik: klucz analogowy + wzmacniacz                         0.09
+  stabilizator, ok. 45 elementow biernych, filtr wyjsciowy        0.20
+  cyna                                                            0.10
+  6 ogniw 52 x 23 mm                                              3.07
+  polaczenia ogniw, tasma, mocowanie                              0.60
+  dipol 20 m: 2 x 5,05 m drutu 0,10 mm                            0.71
+  antena GPS (drut), linka do balonu                              0.25
+  PLYTKA zmontowana                                               2.12
+  CALOSC do lotu                                                  6.75
+  z superkondensatorem 0,47 F (opcja, ok. 1 g)                    7.75
