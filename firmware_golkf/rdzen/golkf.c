@@ -856,6 +856,9 @@ static uint32_t log_odstep(const gk_t* g)
     return odstep;
 }
 
+bool gk_tekst_na_payload(const char* tekst, uint8_t* payload10) { return tekst_na_payload(tekst, payload10); }
+uint32_t gk_ft8_hz(uint8_t pasmo) { return FT8_DIAL[pasmo < N_PASM ? pasmo : 5]; }
+
 static void nadaj_tekst(gk_t* g, gk_akcja* a, const char* tekst)
 {
     a->co = tekst_na_payload(tekst, a->payload) ? GK_NADAJ_FT8 : GK_SPI;

@@ -157,6 +157,8 @@ void gk_lokator(float szer, float dlug, char* lok7);
 float gk_slonce(uint32_t t, float szer, float dlug);
 bool gk_strefa_ciszy(const gk_t* g, float szer, float dlug);
 void gk_wspr_kanal(uint8_t pasmo, uint16_t kanal, uint32_t* czest_hz, uint8_t* minuta);
+bool gk_tekst_na_payload(const char* tekst, uint8_t* payload10);   /* tekst komunikatu FT8 -> 77 bitów */
+uint32_t gk_ft8_hz(uint8_t pasmo);                                 /* częstotliwość „dial” FT8 pasma */
 void gk_hmac_sha256(const uint8_t* klucz, int nk, const uint8_t* dane, int nd, uint8_t* wynik32);
 
 #endif

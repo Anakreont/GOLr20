@@ -5,11 +5,12 @@
 The idea: a pico balloon that makes ordinary FT8 contacts (answers callers like a normal station), stores them in a log,
 sends the log down in FT8 data frames, accepts signed commands from the ground and also beacons WSPR for tracking.
 
-**Status (2026-11-23): boards v0.2 are ordered, nothing has been built or powered up yet. The receiver, the transmitter level
-and the whole concept are unproven on hardware.**
+**Status (2026-11-23): boards v0.2 are ordered, nothing has been built or powered up yet. Board files and firmware are complete
+enough to build and flash one, but the receiver, the transmitter level and the whole concept are unproven on hardware.**
 
 ## Hardware v0.2 (`pcb_v0.2/`)
 - `R20_v0_2_gerber.zip`, `BOM_R20_v0_2.csv`, `CPL_R20_v0_2.csv` - the files sent to JLCPCB (Economic PCBA, top side, 0.8 mm).
+- `kicad_src/` - KiCad 7 board (`pcb/r20.kicad_pcb`) and the Python scripts that generate it: `projekt.py` (parts and nets - there is no drawn schematic), `uklad.py` (placement), `buduj.py`. Parts placement drawing: `img/r20_v0_2_parts.png`.
 - MCU RP2354A (QFN-60), 12 MHz crystal, USB for flashing (BOOTSEL), no SWD pads.
 - Core supply from an external 1.1 V LDO (U8, TLV74311P) instead of the on-chip switcher: no inductor, less switching noise next to the receiver.
   VREG_FB to ground, VREG_LX open, VREG_AVDD/VREG_VIN powered (RP2350 datasheet, external core supply).
@@ -25,16 +26,20 @@ and the whole concept are unproven on hardware.**
 - The first BOM had a 1.2 V regulator for the core (ME6211C12). RP2350 recommends 1.05-1.16 V (absolute max 1.21 V).
   The BOM here already has the 1.1 V part (C485147, same SOT-23-5 pinout).
 - Only 1 uF at DVDD (datasheet suggests 4.7 uF at the far pin).
-- KiCad sources of v0.2 are not in this repository yet - only the production files.
 - JLCPCB adds two 1.15 mm tooling holes for assembly (one under the GPS module, one in the ground pour). They do not cut any track.
 
-## Firmware: GOLkf (`firmware_golkf/`)
-`rdzen/golkf.c`, `rdzen/golkf.h` - the logic core, hardware independent (about 8 kB of code on Cortex-M33):
-energy levels from panel voltage and sun elevation, window plan (TX/RX), FT8 contact state machine, log, signed commands,
-WSPR schedule (Traquito channel maths), no-transmit zones.
-**There is no hardware layer yet (Si5351, I/Q receiver + decoder, GPS, flash, USB), so this cannot be flashed.**
-`test/buduj.sh` builds the core as a PC library together with kgoba/ft8_lib (MIT).
-The command key (16 bytes) is not in the code; it is meant to be written at programming time.
+## Firmware: GOLkf v0.2 (`firmware_golkf/`)
+- `rdzen/` - the logic core, hardware independent: energy levels from panel voltage and sun elevation, window plan (TX/RX),
+  FT8 contact state machine, log, signed commands, WSPR schedule (Traquito channel maths), no-transmit zones.
+- `sprzet/` - hardware layer for R20 (Pico SDK): Si5351 control, I/Q receiver + FT8 decoder, FT8/WSPR transmit, GPS, flash storage, USB console.
+- `uf2/` - prebuilt images to copy onto the RP2350 drive.
+- **[`firmware_golkf/FLASHING.md`](firmware_golkf/FLASHING.md) - how to build, flash and bring the board up.**
+
+**The firmware compiles and its PC-side tests pass, but it has never run on a board.** There is no power saving yet.
+The command key (16 bytes) is not in the code; set it from the console.
+
+## Ground side (`protocol/`)
+`robot_proto.py` - format of the FT8 data frames and signed commands (version 1). The ground station program is not published yet.
 
 ## `sim_m33/` - can an RP2350 decode FT8 in time?
 kgoba/ft8_lib built for Cortex-M33 and run in QEMU (mps2-an505) on recorded audio, counting instructions.
