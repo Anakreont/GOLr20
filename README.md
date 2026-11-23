@@ -1,4 +1,7 @@
-# R20 - HF balloon tracker with a receiver (FT8 contacts + WSPR)
+# GOLr20 - HF balloon tracker with a receiver (FT8 contacts + WSPR)
+
+One project, three parts: **GOLr20** - the tracker board (marked "R20" on the PCB), **GOLkf** - its firmware,
+**GOLbase** - the ground station program.
 
 ![R20 v0.2 top](img/r20_v0_2_top.png)
 
@@ -56,7 +59,7 @@ values, not measurements.
 The callsigns in the code are placeholders (`QQ0QQQ` for WSPR, `QQ0Q` for FT8). Set your own before transmitting; an amateur licence is required.
 
 ## Related
-The 433 MHz LoRa camera tracker from the same author: https://github.com/Anakreont/T433-lora-photo-tracker
+GOLt433, the 433 MHz LoRa camera tracker from the same author: https://github.com/Anakreont/GOLt433
 
 ## Licence
 MIT (see `LICENSE`) for the code and the board files. Design by SQ9GOL. Source comments are in Polish.
